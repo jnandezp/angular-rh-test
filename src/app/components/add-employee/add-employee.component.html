@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <h4 class="mb-4">{{title}}</h4>
+
+    <form #EmployeeNewForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputNombre">Nombre</label>
+          <input type="text" class="form-control" id="inputNombre" #name="ngModel" placeholder="Nombre" name="nombre" [(ngModel)]="empleado.nombre"
+            required>
+          <span *ngIf="!name.valid && name.touched">El nombre es obligatorio</span>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputTelefono">Telefono</label>
+          <input type="text" class="form-control" id="inputTelefono" #telefono="ngModel" placeholder="Telefono" name="telefono" [(ngModel)]="empleado.telefono"
+            required>
+          <span *ngIf="!telefono.valid && telefono.touched">El telefono es obligatorio</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputDireccion">Dirección</label>
+        <input type="text" class="form-control" id="inputDireccion" #direccion="ngModel" placeholder="Dirección" name="direccion"
+          [(ngModel)]="empleado.direccion" required>
+        <span *ngIf="!direccion.valid && direccion.touched">La dirección es obligatoria</span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputFechaNacimiento">Fecha de nacimiento</label>
+          <input type="string" class="form-control" id="inputFechaNacimiento" placeholder="dd/mm/YYYY" #fechaNacimiento="ngModel" name="fechaNacimiento"
+          [(ngModel)] ="empleado.fechaNacimiento" required>
+          <span *ngIf="!fechaNacimiento.valid && fechaNacimiento.touched">La fecha de nacimiento es obligatoria</span>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputPuesto">Puesto</label>
+          <select id="inputPuesto" class="form-control" name="puesto" [(ngModel)]="empleado.puesto">
+            <option value="desarrollador">Desarrollador</option>
+            <option value="developer">Developer</option>
+            <option value="diseñador">Diseñador</option>
+            <option value="mercadologo">Mercadologo</option>
+            <option value="administrador">Administrador</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputSalario">Salario</label>
+          <input type="number" min="0" class="form-control" id="inputSalario" placeholder="$$$" #salario="ngModel" name="salario" [(ngModel)]="empleado.salario"
+            required>
+          <span *ngIf="!salario.valid && salario.touched">Agrega un salario</span>
+        </div>
+      </div>
+      <div class="float-right">
+        <a class="btn btn-secondary mt-4" (click)="onCancel()">Cancelar</a>
+        <button type="submit" class="btn btn-primary  mt-4" [disabled]="!EmployeeNewForm.form.valid || hideSubmit">Guardar cambios</button>
+      </div>
+    </form>
+  </div>
+</div>

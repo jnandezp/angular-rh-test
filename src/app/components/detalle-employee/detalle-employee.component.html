@@ -1,0 +1,74 @@
+<h4 class="mb-4 text-center">{{title}}</h4>
+<div class="row justify-content-center">
+  <div class="col-md-3 text-center">
+    <img src="assets/img/user-photo.jpeg" alt="..." class="rounded size-img-photo">
+  </div>
+  <div class="col-md-7 mt-mb-20">
+    <div class="employee-detail">
+      <div class="col-sm-12">
+        <div>
+          <label>
+            <b>Nombre:</b>
+          </label>
+          {{empleado.nombre}}
+        </div>
+        <div>
+          <label>
+            <b>Fecha de Nacimiento:</b>
+          </label>
+          {{empleado.fechaNacimiento}}
+        </div>
+        <div>
+          <label>
+            <b>Telefono:</b>
+          </label>
+          {{empleado.telefono}}
+        </div>
+        <div>
+          <label>
+            <b>Puesto:</b>
+          </label>
+          {{empleado.puesto}}
+        </div>
+        <div>
+          <label>
+            <b>Salario:</b>
+          </label>
+          {{empleado.salario}}
+        </div>
+        <div>
+          <label>
+            <b>Dirección:</b>
+          </label>
+          {{empleado.direccion}}
+        </div>
+      </div>
+    </div>
+
+
+    <div class="employee-languaje mt-4 ">
+      <div class="col-sm-12 col-md-12">
+        <div class="mt-4 mb-4">
+          <h4>Conocimientos</h4>
+        </div>
+        <ul class="list-group" *ngIf="empleado.knowledges != undefined">
+          <li class="list-group-item lh-50 " *ngFor="let knowledge of empleado.knowledges">
+            <span class="pl-2">{{knowledge.language.lenguaje}}</span>
+            <div class="c100 p{{knowledge.porcentaje}} custom" >
+              <span>{{knowledge.porcentaje}}%</span>
+              <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="float-right">
+        <a class="btn btn-secondary mt-4" (click)="onCancel()">Cancelar</a>
+        <a class="btn btn-warning mt-4" [routerLink]="['/editar-empleado', empleado.id]">Editar</a>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,53 @@
+.martop-40 {
+  margin-top: 40px;
+}
+
+a.btn {
+  color: #fff !important;
+}
+
+.lh-50 {
+  line-height: 50px;
+}
+
+.size-img-photo {
+  width: 128px;
+  height: 128px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.mt-mb-20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.error-page-not-found-404 {
+  font-size: 180px;
+}
+
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+    .error-page-not-found-404 {
+        font-size: 140px;
+      }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+
+}

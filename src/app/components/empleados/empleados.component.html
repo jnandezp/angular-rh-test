@@ -1,0 +1,67 @@
+<div class="container">
+  <h4 class="mb-4 text-center">{{title}}</h4>
+  <div class="row justify-content-center" *ngIf="empleados">
+    <div class="col-md-5 col-lg-4" *ngFor="let empleado of empleados">
+      <div class="card text-center mb-4">
+        <img src="assets/img/user-photo.jpeg" alt="..." class="rounded-circle size-img-photo">
+
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ empleado.nombre}}
+          </h5>
+          <div>
+            <label>Fecha de nacimiento:</label>
+            {{empleado.fecha_nacimiento | date:'shortDate'}}
+          </div>
+          <div>
+            <label>Telefono:</label>
+            {{empleado.telefono}}
+          </div>
+          <div>
+            <label>Edad:</label>
+            {{empleado.edad}}
+          </div>
+          <div>
+            <label>Dirección:</label>
+            {{empleado.direccion}}
+          </div>
+          <div class="form-control">
+            <div>
+              <label>Puesto:</label>
+              <span *ngIf="empleado.economic_data">
+                {{empleado.economic_data.puesto}}
+              </span>
+              <span *ngIf="!empleado.economic_data">
+                No asignado
+              </span>
+            </div>
+            <div>
+              <label>Salario:</label>
+              <span *ngIf="empleado.economic_data">
+                {{empleado.economic_data.salario}}
+              </span>
+              <span *ngIf="!empleado.economic_data">
+                No asignado
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-sm-6">
+              <a class="btn btn-primary btn-block mb-2 mt-2" [routerLink]="['/detalle-empleado', empleado.id]">Detalle</a>
+            </div>
+            <div class="col-sm-6">
+              <a class="btn btn-warning btn-block mb-2 mt-2" [routerLink]="['/editar-empleado', empleado.id]">Editar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row justify-content-center" *ngIf="empleados.length <= 0">
+    Por el momento no tienes ningun empleado.
+  </div>
+</div>
